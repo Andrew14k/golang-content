@@ -10,8 +10,26 @@ func main() {
 	var num float64
 	fmt.Print("Enter number: ")
 	fmt.Scanln(&num)
-
 	number(num)
+
+	var t interface{} //interface is any alias for any - matches against any type
+	t = "3"
+	whatAmI(t)
+	t = 3
+	whatAmI(t)
+	t = true
+	whatAmI(t)
+}
+
+func whatAmI(i interface{}) {
+	switch t := i.(type) {
+	case bool:
+		fmt.Println("I'm a bool")
+	case int:
+		fmt.Println("I'm an int")
+	default:
+		fmt.Printf("Don't know type: %T\n", t)
+	}
 }
 
 func number(num float64) {
