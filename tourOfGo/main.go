@@ -181,25 +181,3 @@ func main() {
 // elem, ok = m[key]
 // If key is in m, ok is true. If not, ok is false.
 // If key is not in the map, then elem is the zero value for the map's element type.
-
-// go functions may be closures
-// a closure is a function value that references variables from outside its body
-// the function may access and assign to the referenced variables. in the sense the function is bound to the variables
-// For example, the adder function returns a closure. Each closure is bound to its own sum variable.
-// func adder() func(int) int {
-// 	sum := 0
-// 	return func(x int) int {
-// 		sum += x
-// 		return sum
-// 	}
-// }
-
-// func main() {
-// 	pos, neg := adder(), adder()
-// 	for i := 0; i < 10; i++ {
-// 		fmt.Println(
-// 			pos(i),
-// 			neg(-2*i),
-// 		)
-// 	}
-// }
