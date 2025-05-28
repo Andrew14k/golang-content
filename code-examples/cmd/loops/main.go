@@ -47,3 +47,5 @@ func bankApp() {
 		}
 	}
 }
+
+//int on its own (instead of declaring int32 or int64, will change based on its system)
