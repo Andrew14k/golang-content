@@ -64,4 +64,9 @@ func main() {
 		fmt.Println(i)
 	}
 
+	// foreach loop equivalent
+	// nums := []int{5, 10, 15, 20, 25, 30, 35, 40, 45, 50}
+	// for i, v := range nums {
+	// 	fmt.Println(i, v)
+	// }
 }
