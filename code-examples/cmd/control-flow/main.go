@@ -41,3 +41,13 @@ func number(num float64) {
 // default:
 //   fmt.Println("There are 31 days in", m)
 // }
+
+// n := 3
+// switch {
+// case n < 0:
+//   fmt.Println("Negative")
+// case n > 0:
+//   fmt.Println("Positive")
+// default:
+//   fmt.Println("Zero")
+// }
