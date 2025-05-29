@@ -21,20 +21,20 @@ func main() {
 			lCount[ch]++
 		}
 	}
-	fmt.Println(lCount)
+	fmt.Println(lCount) //map[97:3 98:1 99:3 101:3 104:3 105:1 107:1 109:1 110:1 111:1 115:1 116:4]
 
 	// extracts letters (keys) into slice
 	letters := make([]rune, 0, len(lCount))
 	for ch := range lCount {
 		letters = append(letters, ch)
 	}
-	fmt.Println(letters)
+	fmt.Println(letters) //[116 104 101 99 97 105 110 115 111 109 98 107] or other order
 
 	// alphabetically sorts
 	sort.Slice(letters, func(i, j int) bool {
 		return letters[i] < letters[j]
 	})
-	fmt.Println(letters)
+	fmt.Println(letters) //[97 98 99 101 104 105 107 109 110 111 115 116]
 
 	for _, ch := range letters {
 		fmt.Printf("%c: %d\n", ch, lCount[ch])
