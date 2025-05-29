@@ -12,31 +12,33 @@ import (
 func main() {
 	//slicesFunc()
 
+	messageMap()
+}
+
+func messageMap() {
 	message := "the cat in the hat comes back"
 	lCount := make(map[rune]uint8)
 
 	// counts letters
 	for _, ch := range message {
-		if ch >= 'a' && ch <= 'z' {
+		if ch >= 'a' && ch <= 'z' { //ignores whitespace
 			lCount[ch]++
 		}
 	}
-	fmt.Println(lCount) //map[97:3 98:1 99:3 101:3 104:3 105:1 107:1 109:1 110:1 111:1 115:1 116:4]
+	//fmt.Println(lCount) //map[97:3 98:1 99:3 101:3 104:3 105:1 107:1 109:1 110:1 111:1 115:1 116:4] unicode code points
 
-	// extracts letters (keys) into slice
-	letters := make([]rune, 0, len(lCount))
+	// creates a slice that takes the keys of lCount
+	letterKey := []rune{}
 	for ch := range lCount {
-		letters = append(letters, ch)
+		letterKey = append(letterKey, ch)
 	}
-	fmt.Println(letters) //[116 104 101 99 97 105 110 115 111 109 98 107] or other order
+	//fmt.Println(letterKey) //[116 104 101 99 97 105 110 115 111 109 98 107] or other order
 
-	// alphabetically sorts
-	sort.Slice(letters, func(i, j int) bool {
-		return letters[i] < letters[j]
-	})
-	fmt.Println(letters) //[97 98 99 101 104 105 107 109 110 111 115 116]
+	// alphabetically sorts - func(i, j) how elements are compared
+	sort.Slice(letterKey, func(i, j int) bool { return letterKey[i] < letterKey[j] })
+	//fmt.Println(letterKey) //[97 98 99 101 104 105 107 109 110 111 115 116]
 
-	for _, ch := range letters {
+	for _, ch := range letterKey {
 		fmt.Printf("%c: %d\n", ch, lCount[ch])
 	}
 }
