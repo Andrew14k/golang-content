@@ -52,4 +52,40 @@ func main() {
 	}
 	sliceOfArray[0] = 2                             //much easier and cleaner than using the append function
 	fmt.Println("Value of element in arr:", arr[0]) //slice points to eact array that array is pointing to - not a copy
+	fmt.Println(" ")
+
+	fmt.Println("MAPS") //associative array - can specify keys, maps allow for fast lookups, insertions, deletions
+	//maps are reference types, but unlike slices, they cannot guarantee the order of elements in a map
+	// slices maps and functiosn cannot be used as keys
+
+	//make syntax for maps - or map literal (shown below)
+	daysInMonth := map[string]int{"January": 31, "February": 28, "March": 31} //map[key]value{k1:v1, k2,v2}
+	for month, days := range daysInMonth {
+		fmt.Printf("There are %d days in %s\n", days, month)
+	}
+
+	// if you print mutliple times, you will see apple and banana can be output in different orders
+	//example with make
+	produce := make(map[string]float32)
+	produce["apple"] = 1.2
+	produce["banana"] = 0.5
+
+	for item, price := range produce {
+		fmt.Printf("Item: %s - £%.2f\n", item, price)
+	}
+	//make(map[key]value)
+	//m[key] := value	//add or update value
+	//val := m[key] //retireves value
+
+	// check if a val exists - ok is a bool to check if exists
+	// 	if val, ok := m[key]; ok {
+	//   // execute if key found
+	// } else {
+	//   // execute if key isn't found
+	// }
+
+	//delete(m, key)
+	//len(m)
+	//for k,v := range m
+	fmt.Println(" ")
 }
