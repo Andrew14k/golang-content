@@ -50,7 +50,7 @@ defer will defer execution of something until other execution is completed
 
 panic stops normal execution of a go routine, and will wind back up. other executions still go
 
-recover allows a recovery from a panic, enabling execution to continue
+recover allows a recovery from a panic, enabling execution to continue - can only use a recover within a defer
 */
 
 /*
