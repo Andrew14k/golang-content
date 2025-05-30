@@ -7,5 +7,5 @@ type camera struct {
 }
 
 func (c *camera) trigger() string { //camera implements shooter interfaces becuase of trigger
-	return fmt.Sprintf("has taken a photo with a %s", c.brand)
+	return fmt.Sprintf("has taken a photo with a %s\n", c.brand)
 }

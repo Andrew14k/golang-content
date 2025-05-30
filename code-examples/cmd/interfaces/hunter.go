@@ -8,5 +8,9 @@ type hunter struct {
 }
 
 func (h *hunter) shoot() {
-	fmt.Printf("Hunter %s has taken a photo with %s", h.firstName, h.trigger())
+	fmt.Printf("Hunter %s %s", h.firstName, h.trigger())
+}
+
+func (h *hunter) setShooter(s shooter) {
+	h.shooter = s
 }
