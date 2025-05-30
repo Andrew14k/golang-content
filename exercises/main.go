@@ -3,28 +3,37 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func main() {
-	fizzBuzz()
-	fmt.Println(" ")
+	// fizzBuzz()
+	// fmt.Println(" ")
 
-	var input string
-	fmt.Print("input for type assessment: ")
-	fmt.Scanln(&input)
-	typeConversion(input)
-	fmt.Println(" ")
+	// var input string
+	// fmt.Print("input for type assessment: ")
+	// fmt.Scanln(&input)
+	// typeConversion(input)
+	// fmt.Println(" ")
 
-	prime := isPrime(5)
-	fmt.Println(prime)
-	fmt.Println(" ")
+	// prime := isPrime(5)
+	// fmt.Println(prime)
+	// fmt.Println(" ")
 
-	numbers := []int{2, 4, 6, 3, 9, 5}
-	fmt.Println(arrayAnalysis(numbers))
-	fmt.Println(" ")
+	// numbers := []int{2, 4, 6, 3, 9, 5}
+	// fmt.Println(arrayAnalysis(numbers))
+	// fmt.Println(" ")
 
-	word := "hello"
-	fmt.Println(reverseString(word))
+	// word := "hello"
+	// fmt.Println(reverseString(word))
+
+	//multiplicationTable(4)
+	// arr := [5]int{1, 2, 3, 4, 5}
+	// fmt.Println(reverseArray(arr))
+
+	//fmt.Println(removeIndex([]int{10, 20, 30, 40}, 2))
+
+	fmt.Println(countWords([]string{"apple", "banana", "apple", "orange", "banana", "apple"}))
 }
 
 // fizz buzz iterator
@@ -109,4 +118,42 @@ func reverseString(s string) string {
 		runes[i], runes[j] = runes[j], runes[i]
 	}
 	return string(runes)
+}
+
+// prints multiplication table for each integer up to num, and show the multiples of each int up to num up to the numth integer
+func multiplicationTable(num int) {
+	for i := 1; i <= num; i++ {
+		for x := 1; x <= num; x++ {
+			fmt.Printf("%d ", i*x)
+		}
+		fmt.Println(" ") //splits for each num
+	}
+}
+
+// reverse an array
+func reverseArray(arr [5]int) [5]int {
+	var reverse [5]int
+	for i := 0; i < len(arr); i++ {
+		reverse[i] = arr[len(arr)-1-i]
+	}
+	return reverse
+}
+
+// remove item at certain index of slice
+func removeIndex(s []int, index int) []int {
+	return append(s[:index], s[index+1:]...)
+}
+
+// count words frequency in string, return map
+func countWords(text []string) map[string]int {
+	sliceMap := make(map[string]int)
+
+	singleString := strings.ToLower(strings.Join(text, " "))
+
+	words := strings.Fields(singleString) //splits words by whitespace
+
+	for _, word := range words {
+		sliceMap[word]++
+	}
+	return sliceMap
 }
