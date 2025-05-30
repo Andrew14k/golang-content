@@ -30,6 +30,7 @@ func ScoreCounter() func(correct int, points int) int {
 func PlayerTurn(player string, getGuess StringInput, getPoints IntInput, getScore func(int, int) int, flip string) (bool, int) {
 	var correct int
 	//Sprintf formats string to be passed to function, Printf prints directly to console
+
 	points, quit := getPoints(fmt.Sprintf("%s, how many points do you want to play for? (type q to exit) ", player))
 	if quit {
 		return true, 0
